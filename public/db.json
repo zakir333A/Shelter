@@ -1,0 +1,641 @@
+{
+    "logo": {
+      "id": "logo",
+      "altText": "Company Logo",
+      "imageUrl": "../logos.png"
+ 
+    },
+    "navbar": {
+      "links": [
+        {
+          "id": "home",
+          "text": "Home",
+          "url": "/"
+        },
+        {
+          "id": "services",
+          "text": "Xidmətlər",
+          "url": "/services"
+        },
+        {
+          "id": "projects",
+          "text": "Sığınacaqlarımız",
+          "url": "/projects"
+        },
+        {
+          "id": "about",
+          "text": "Haqqımızda",
+          "url": "/about"
+        },
+        {
+          "id": "contact",
+          "text": "Əlaqə",
+          "url": "/contact"
+        },
+        {
+          "id": "blog",
+          "text": "Blog",
+          "url": "/blog"
+        }
+        
+      ],
+  "hero": {
+    "backgroundImageUrl": "./home.jpg",
+    "heading": "Qoruma Mərkəzi",
+    "paragraph": "Biz, təbii fəlakətlər və digər təhlükələrə qarşı insanların təhlükəsizliyini təmin etmək üçün müasir və etibarlı sığınacaq xidmətləri təqdim edirik.",
+    "buttonText": "Daha ətraflı",
+    "buttonUrl": "/get-started"
+  },
+  "about": {
+    "mainImageUrl": "./home-1.webp",
+    "aboutTitle":"Haqqımızda",
+    "heading": "Bizim şirkətimiz Haqqında",
+    "paragraph": "Bizim şirkətimiz, təbii fəlakətlərə qarşı maksimum təhlükəsizlik və qorunma təmin edən müasir sığınacaqlar təqdim edir. Hədəfimiz, insanları qorumaq və onlara sığınacaqda rahatlıq hissi yaşatmaqdır. Sizin təhlükəsizliyiniz bizim prioritetimizdir! ",
+    "smallImages": [
+      {
+        "id": "img1",
+        "imageUrl": "./aboutmini.png",
+        "altText": "Team at work"
+      },
+      {
+        "id": "img2",
+        "imageUrl": "./aboutmini.png",
+        "altText": "Completed project"
+      },
+      {
+        "id": "img3",
+        "imageUrl": "./aboutmini.png",
+        "altText": "Equipment"
+      },
+      {
+        "id": "img4",
+        "imageUrl": "./aboutmini.png",
+        "altText": "Team meeting"
+      }
+    ],
+    "buttonText": "Daha ətraflı",
+    "buttonUrl": "/about"
+  }
+ 
+    },
+    "projects": [
+      {
+        "proHead":"Sığınacaqlarımız"
+      },
+    {
+      "id": "1",
+      "title": "Fırtına Qoruyucusu",
+      "mainImageUrl": "./siginacaq-1.avif",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/1"
+    },
+    {
+      "id": "2",
+      "title": "Sülh Limanı",
+      "mainImageUrl": "./siginacaq-2.avif",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/2"
+    },
+    {
+      "id": "3",
+      "title": "Güvənli Sığınacaq",
+      "mainImageUrl": "./siginacaq-3.jpg",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/3"
+    }
+  ],
+  
+    "partners": [
+      { "id": 1, "imageUrl": "/partner-1.png" },
+      { "id": 2, "imageUrl": "/partner-2.png" }
+    ],
+
+    
+      "banner": {
+        "icon": "GrServices",
+        "text": "You will be satisfy with our work. Contact us today & help is on the way.",
+        "buttonText": "Schedule a Service",
+        "buttonLink": "#"
+      },
+      
+        "contactInfo": [
+          {
+            "type": "Phone",
+            "value": "+994 70 644 77 74"
+          },
+          {
+            "type": "Fax",
+            "value": "03 5432 1234"
+          },
+          {
+            "type": "Email",
+            "value": "info@marcc.com.au"
+          }
+        ],
+        "formOptions": [
+          {
+            "value": "1",
+            "label": "Option 1"
+          },
+          {
+            "value": "2",
+            "label": "Option 2"
+          },
+          {
+            "value": "3",
+            "label": "Option 3"
+          },
+          {
+            "value": "4",
+            "label": "Option 4"
+          }
+        ],
+        "map": {
+          "src": "https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Azerbaijan%20Baku+(My%20Baku)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed",
+          "width": "100%",
+          "height": "560",
+          "title": "Google Maps"
+        },
+        "form": {
+          "namePlaceholder": "Adınız",
+          "phonePlaceholder": "Soyadınız",
+          "emailPlaceholder": "Email",
+          "selectPlaceholder": "Bizi necə tapdınız?",
+          "sendButtonText": "Göndər"
+        
+      },
+      
+      
+  "projectsImp": [
+    {
+      
+      "id": "1",
+      "title": "Tibbi Yardım",
+      "mainImageUrl": "xidmet-1.jpg",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/1"
+    },
+    {
+      "id": "2",
+      "title": "Psixoloji Dəstək ",
+      "mainImageUrl": "./xidmet-2.png",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/2"
+    },
+    {
+      "id": "3",
+      "title": "Gecələmə və Yemək Təminatı",
+      "mainImageUrl": "./xidmet-3.png",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/3"
+    },
+    {
+      "id": "4",
+      "title": "Hüquqi Yardım",
+      "mainImageUrl": "xidmet-4.jpeg",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/4"
+    },
+    {
+      "id": "5",
+      "title": "Məişət Ehtiyacları və Təchizatlar",
+      "mainImageUrl": "xidmet-5.avif",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/5"
+    },
+    {
+      "id": "6",
+      "title": "Uşaqlar üçün Xüsusi Proqramlar",
+      "mainImageUrl": "xidmet-6.jpg",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/6"
+    },
+    {
+      "id": "7",
+      "title": "Reabilitasiya Xidmətləri ",
+      "mainImageUrl": "xidmet-7.png",
+      "linkText": "Daha ətraflı",
+      "linkUrl": "/projects/7"
+    }
+  ],
+  
+  
+  "pages": [
+    { "name": "Home", "url": "/" },
+    { "name": "Xidmətlər", "url": "/services" },
+    { "name": "Sığınacaqlarımız", "url": "/projects" },
+    { "name": "Haqqımızda", "url": "/about" },
+    { "name": "Əlaqə", "url": "/contact" }
+  ],
+  "services": [
+    { "id": "1", "name": "Tibbi Yardim", "url": "/services/1" },
+    { "id": "2", "name": "Psixoloji Destek", "url": "/services/2" },
+    { "id": "3", "name": "Geceleme ve yemek Teminati", "url": "/services/3" },
+    { "id": "4", "name": "Huquqi Yardim", "url": "/services/4" },
+    { "id": "5", "name": "Meiset Ehtiyaclari", "url": "/services/5" },
+    { "id": "6", "name": "Usaqlar ucun xususi proqramlar", "url": "/services/6" },
+    { "id": "7", "name": "Reabilitasiya Merkezleri", "url": "/services/7" }
+  ],
+  "contact": {
+    "address": "123 Baş küçəsi, Şəhər",
+    "phone": "+994123456789",
+    "email": "info@example.com"
+  },
+  
+  
+    
+    "servicess": [
+      { "name": "Tibbi yardim", "url": "#" },
+      { "name": "Psixoloji dəstək", "url": "#" },
+      { "name": "Gecələmə və Yemək təminatı", "url": "#" },
+      { "name": "Hüquqi Yardım", "url": "#" },
+      { "name": "Meişət Ehtiyacları və Təchizatlar", "url": "#" },
+      { "name": "Uşaqlar üçün Xüsusi Proqramlar", "url": "#" }
+    ],
+    "contact": {
+      "address": "EMS, Unit 19, City Road, Inner Man Street, Switzerland, SR5 2BN",
+      "phone": "+91 8630 816230",
+      "email": "parashard641@gmail.com"
+    },
+    
+
+
+    
+    
+    
+      "servicesDetails": {
+        "bannerTitle": "Electrical and Mechanical",
+        "detailsList": [
+          {
+            "id": "1",
+            "title": "Tibbi yardim",
+            "link": "#",
+            "bannerTitle": "Tibbi yardim",
+            "bannerBackground": "../xidmet-1.jpg",
+            "detailImage": "../xidmet-1.jpg",
+            "detailsDescription": "  Təcili Tibbi Yardım Qəza və ya fövqəladə hallar zamanı dərhal müdaxilə. Təcili yardım xidmətləri, ilk yardım və xəstənin ən qısa müddətdə xəstəxanaya çatdırılması. 2. Poliklinika Xidmətləri Həkim müayinələri, diaqnostika testləri, vaksinasiyalar və müntəzəm sağlamlıq yoxlamaları. Xroniki xəstəliklərin idarəsi və müalicəsi."
+          },
+          {
+            "id": "2",
+            "title": "Psixoloji dəstək",
+            "link": "#",
+            "bannerTitle": "Psixoloji dəstək",
+            "bannerBackground": "../xidmet-2.png",
+            "detailImage": "../xidmet-2.png",
+            "detailsDescription": "Təhlükəsiz Məkanın Yaradılması Psixoloji dəstək, insanlara fikirlərini və hisslərini sərbəst ifadə etməyə imkan verən təhlükəsiz bir mühit yaradır. Terapilər Bireysel Terapilər: Şəxsi narahatlıqların, travmaların və emosional çətinliklərin həlli üçün terapevt ilə birbaşa iş. Qrup Terapiləri: Eyni problemləri paylaşan insanlarla bir araya gələrək dəstək və fikir mübadiləsi."
+          },
+          {
+            "id": "3",
+            "title": "Gecələmə və  Yemək təminatı",
+            "link": "#",
+            "bannerTitle": "Gecələmə və  Yemək təminatı",
+            "bannerBackground": "../xidmet-3.png",
+            "detailImage": "../xidmet-3.png",
+            "detailsDescription": "Gecələmə xidməti, müştərilərə rahat bir mühitdə yatmaq imkanı təqdim edir. Yemək təminatı isə qonaqlara müxtəlif yemək variantları təqdim edərək onların məmnuniyyətini artırır."
+          },
+          {
+            "id": "4",
+            "title": "Hüquqi Yardım",
+            "link": "#",
+            "bannerTitle": "Hüquqi Yardım",
+            "bannerBackground": "../xidmet-4.jpeg",
+            "detailImage": "../xidmet-4.jpeg",
+            "detailsDescription": "Hüquqi yardım, şəxslərə və ya təşkilatlara hüquqi məsələlərdə peşəkar dəstək və məsləhət təqdim edir. Bu xidmət, hüquqi hüquqların qorunması və mübahisələrin həlli üçün vacibdir."
+          },
+          {
+            "id": "5",
+            "title": "Meişət Ehtiyacları və Təchizatlar",
+            "link": "#",
+            "bannerTitle": "Meişət Ehtiyacları və Təchizatlar",
+            "bannerBackground": "../electric.jpg",
+            "detailImage": "../xidmet-5.avif",
+            "detailsDescription": "Meişət ehtiyacları, insanların gündəlik həyatda istifadə etdiyi əsas əşyaları əhatə edir, məsələn, qab-qacaq, yataq dəstləri və digər ev əşyaları. Təchizatlar isə bu ehtiyacları qarşılamaq üçün lazım olan mal-materiallardır ki, bunlar evin rahatlığı və funksionallığı üçün əhəmiyyətlidir."
+          },
+          {
+            "id": "6",
+            "title": "Uşaqlar üçün Xüsusi Proqramlar",
+            "link": "#",
+            "bannerTitle": "Uşaqlar üçün Xüsusi Proqramlar",
+            "bannerBackground": "../electric.jpg",
+            "detailImage": "../xidmet-6.jpg",
+            "detailsDescription": "Uşaqlar üçün xüsusi proqramlar, onların inkişafını dəstəkləyən, əyləncəli və maarifləndirici fəaliyyətlər təqdim edir. Bu proqramlar, uşaqların yaradıcılığını, sosial bacarıqlarını və əqli inkişafını stimullaşdırmaq məqsədini güdür."
+          },
+          {
+            "id": "7",
+            "title": "Reabilitasiya mərkəzləri",
+            "link": "#",
+            "bannerTitle": "Reabilitasiya mərkəzləri",
+            "bannerBackground": "../electric.jpg",
+            "detailImage": "../xidmet-7.png",
+            "detailsDescription": "Reabilitasiya mərkəzləri, fərdlərin fiziki, psixoloji və emosional vəziyyətini yaxşılaşdırmaq üçün nəzərdə tutulmuş mütəxəssis xidmətləri təqdim edir. Bu mərkəzlər, travma, xəstəlik və ya müalicə sonrası bərpa prosesində olan insanlara dəstək verərək onların gündəlik həyatına qayıtmalarına kömək edir."
+          }
+        ],
+        "serviceInfo": {
+          "details": "Domestic installations and maintenance, Commercial installations and maintenance, Industrial installations and maintenance, Bespoke lighting designs, LED energy saving schemes, Fixed wiring inspection and testing, Fault finding and diagnostic, Portable appliance testing (PAT testing) and other safety testing and inspection, PPM Callouts."
+        },
+        "detailIcons": [
+          {
+            "src": "../detail-1.png",
+            "alt": "Icon 1",
+            "iconText": "Low Cost"
+          },
+          {
+            "src": "../detail-2.png",
+            "alt": "Icon 2",
+            "iconText": "Available 24 Hours"
+          },
+          {
+            "src": "../detail-3.png",
+            "alt": "Icon 3",
+            "iconText": "Licensed & Insured"
+          },
+          {
+            "src": "../detail-4.png",
+            "alt": "Icon 4",
+            "iconText": "Skilled Handyman"
+          }
+        ]
+    
+      },
+      "ProjectsCard": [
+      
+        {
+          "id": "1",
+          "title": "Electrical and Mechanical Systems",
+          "mainImageUrl": "./siginacaq-1.avif",
+          "linkText": "Daha ətraflı",
+          "linkUrl": "/projects/1"
+          
+        },
+        {
+          "id": "2",
+          "title": "Air Conditioning Installations",
+          "mainImageUrl": "./siginacaq-2.avif",
+          "linkText": "Daha ətraflı",
+          "linkUrl": "/projects/2"
+        },
+        {
+          "id": "3",
+          "title": "Advanced Refrigeration Solutions",
+          "mainImageUrl": "./siginacaq-3.jpg",
+          "linkText": "Daha ətraflı",
+          "linkUrl": "/projects/3"
+        },
+        {
+          "id": "4",
+          "title": "F Gas Regulation Services",
+          "mainImageUrl": "./siginacaq-4.jpg",
+          "linkText": "Daha ətraflı",
+          "linkUrl": "/projects/4"
+        },
+        {
+          "id": "5",
+          "title": "Renewable Energy Solutions",
+          "mainImageUrl": "./siginacaq-5.jpeg",
+          "linkText": "Daha ətraflı",
+          "linkUrl": "/projects/5"
+        },
+        {
+          "id": "6",
+          "title": "Electricity and Gas Metering",
+          "mainImageUrl": "./siginacaq-6.webp",
+          "linkText": "Daha ətraflı",
+          "linkUrl": "/projects/6"
+        }
+      ],
+      "projectsDetails": [
+        {
+          "id": 1,
+          "dateTitle": "Date:",
+          "date": "January 15, 2022",
+          "clientTitle": "Client:",
+          "client": "Green Energy Solutions",
+          "locationTitle": "Location:",
+          "location": "San Francisco, USA",
+          "categoryTitle": "Category:",
+          "category": "renewable energy",
+          "detailTitle": "Project Detail",
+          "description": "This project involves the installation of solar panels for Green Energy Solutions.",
+          "imageUrl": "../siginacaq-1.avif"
+        },
+        {
+          "id": 2,
+          "dateTitle": "Date:",
+          "date": "August 22, 2021",
+          "clientTitle": "Client:",
+          "client": "Tech Corp",
+          "locationTitle": "Location:",
+          "location": "Los Angeles, USA",
+          "categoryTitle": "Category:",
+          "category": "tech security",
+          "detailTitle": "Project Detail",
+          "description": "This is a project description for Tech Corp.",
+          "imageUrl": "../siginacaq-2.avif"
+        },
+        {
+          "id": 3,
+          "dateTitle": "Date:",
+          "date": "March 5, 2022",
+          "clientTitle": "Client:",
+          "client": "Urban Developers",
+          "locationTitle": "Location:",
+          "location": "Chicago, USA",
+          "categoryTitle": "Category:",
+          "category": "urban development",
+          "detailTitle": "Project Detail",
+          "description": "An urban development project for Urban Developers including infrastructure upgrades.",
+          "imageUrl": "../siginacaq-3.jpg"
+        },
+        {
+          "id": 4,
+          "dateTitle": "Date:",
+          "date": "November 10, 2022",
+          "clientTitle": "Client:",
+          "client": "Healthcare Inc.",
+          "locationTitle": "Location:",
+          "location": "Houston, USA",
+          "categoryTitle": "Category:",
+          "category": "healthcare facilities",
+          "detailTitle": "Project Detail",
+          "description": "Renovation of healthcare facilities for Healthcare Inc.",
+          "imageUrl": "../siginacaq-4.jpg"
+        },
+        {
+          "id": 5,
+          "dateTitle": "Date:",
+          "date": "July 8, 2023",
+          "clientTitle": "Client:",
+          "client": "FinTech Ltd.",
+          "locationTitle": "Location:",
+          "location": "New York, USA",
+          "categoryTitle": "Category:",
+          "category": "financial technology",
+          "detailTitle": "Project Detail",
+          "description": "Implementation of a new financial technology system for FinTech Ltd.",
+          "imageUrl": "../siginacaq-5.jpeg"
+        },
+        {
+          "id": 6,
+          "dateTitle": "Date:",
+          "date": "December 18, 2023",
+          "clientTitle": "Client:",
+          "client": "Smart Homes",
+          "locationTitle": "Location:",
+          "location": "Seattle, USA",
+          "categoryTitle": "Category:",
+          "category": "home automation",
+          "detailTitle": "Project Detail",
+          "description": "Development of smart home systems for Smart Homes.",
+          "imageUrl": "../siginacaq-6.webp"
+        }
+      ],
+      "aboutContent": {
+    "aboutTop": {
+      "imgSrc": "../siginacaq-3.jpg",
+      "aboutUsTitle": "Haqqimizda",
+      "aboutCompanyName": "Siginacaq.az",
+      "description": "Siginacaq.az, müştərilərə geniş çeşiddə təhlükəsiz və rahat sığınacaq xidmətləri təqdim edən bir platformadır. Bu sayt, ev axtaran insanlara etibarlı və uyğun qiymətli seçimlər təqdim edərək, onların yaşayış tələblərini asanlıqla yerinə yetirməyə kömək edir."
+    },
+    "aboutCenter": {
+      "brandValuesTitle": "The EMS Brand Values",
+      "cards": [
+        {
+          "id": 1,
+          "title": "Integrity",
+          "imgSrc": "/brand-1.png",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, praesentium."
+        },
+        {
+          "id": 2,
+          "title": "Commitment",
+          "imgSrc": "/brand-1.png",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, praesentium."
+        },
+        {
+          "id": 3,
+          "title": "Quality",
+          "imgSrc": "/brand-1.png",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, praesentium."
+        },
+        {
+          "id": 4,
+          "title": "Innovation",
+          "imgSrc": "/brand-1.png",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, praesentium."
+        },
+        {
+          "id": 5,
+          "title": "Teamwork",
+          "imgSrc": "/brand-1.png",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, praesentium."
+        },
+        {
+          "id": 6,
+          "title": "Excellence",
+          "imgSrc": "/brand-1.png",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, praesentium."
+        },
+        {
+          "id": 7,
+          "title": "Sustainability",
+          "imgSrc": "/brand-1.png",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, praesentium."
+        },
+        {
+          "id": 8,
+          "title": "Customer Focus",
+          "imgSrc": "/brand-1.png",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, praesentium."
+        }
+      ],
+       "teamMembers": [
+    {
+      "id": 1,
+      "name": "Mick Donkin",
+      "email": "mickdonkin@gmail.com",
+      "imgSrc": "/path-to-image/mick-donkin.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Johnson",
+      "email": "sarahjohnson@example.com",
+      "imgSrc": "/path-to-image/sarah-johnson.jpg"
+    },
+    {
+      "id": 3,
+      "name": "James Smith",
+      "email": "jamessmith@example.com",
+      "imgSrc": "/path-to-image/james-smith.jpg"
+    }
+  ]
+    }
+    
+  },
+  
+    "teamMembers": [
+      {
+        "id": 1,
+        "name": "Mick Donkin",
+        "email": "mickdonkin@gmail.com",
+        "imgSrc": "man-1.png",
+        "vector":"Vector.png"
+      },
+      {
+        "id": 2,
+        "name": "Sarah Johnson",
+        "email": "sarahjohnson@example.com",
+        "imgSrc": "man-1.png"
+      },
+      {
+        "id": 3,
+        "name": "James Smith",
+        "email": "jamessmith@example.com",
+        "imgSrc": "man-1.png"
+      }
+    ],
+    "blogContain": [
+      {
+        "id": 1,
+        "heading": "Welcome To Ems",
+        "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, iusto!",
+        "subHeading": "Take a look at our facility below or",
+        "buttonText": "Browse Our Courses",
+        "imageUrl": "../siginacaq-1.avif"
+      },
+      {
+        "id": 2,
+        "heading": "Welcome To Ems",
+        "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, iusto!",
+        "imageUrl": "../siginacaq-3.jpg"
+      },
+      {
+        "id": 3,
+        "heading": "Welcome To Ems",
+        "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, iusto!",
+        "subHeading": "Take a look at our facility below or",
+        "buttonText": "Browse Our Courses",
+        "imageUrl": "/siginacaq-4.jpg"
+      }
+    ]
+  
+  
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+  
+      
+    
+
+  
+  
+  }
+  
+
+  

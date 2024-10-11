@@ -1,0 +1,107 @@
+.contactTeam {
+    margin-top: 10rem;
+    margin-bottom: 12rem;
+    padding: 0 2rem;
+}
+
+.teamCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.teamText {
+    text-align: center;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.teamText::after {
+    content: "";
+    display: block;
+    width: 300px;
+    height: 2px;
+    background-color: var(--orange);
+    margin: 1rem auto;
+}
+
+.teamText h2 {
+    font-weight: 400;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.teamText span {
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.teamCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 1rem;
+    padding: clamp(1rem, 2vw, 2rem);
+    transition: transform 0.3s ease;
+    width: clamp(200px, 30vw, 344px);  
+    height: clamp(300px, 40vw, 429px); 
+    box-shadow: 0.4rem 0.4rem 1rem rgba(228, 142, 51, 0.3); 
+}
+
+.teamCard img {
+    width: clamp(150px, 20vw, 227px);
+    height: clamp(190px, 25vw, 285px);
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
+
+
+.teamCard h2 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    margin-bottom: 1rem;
+}
+
+.teamCard a {
+    font-size: clamp(1.4rem, 2.5vw, 1.6rem);
+    color: var(--orange);
+    text-decoration: none;
+}
+
+.teamCard:hover {
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .teamCardsContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: 600px) {
+    .teamText h2, .teamText span {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .teamCard {
+        width: 90vw; 
+        height: auto; 
+    }
+
+   
+
+    .teamCard h2, .teamCard a {
+        font-size: clamp(1.4rem, 4vw, 1.8rem);
+    }
+}
+
+@media (max-width: 400px) {
+    .teamCard {
+        width: 100%; 
+    }
+
+    .teamText::after {
+        width: 100px; 
+    }
+}

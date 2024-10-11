@@ -1,0 +1,253 @@
+.map-wrapper {
+  position: relative;
+}
+
+.mapcontent {
+  padding-top: clamp(8rem, 5vw + 3rem, 14rem);
+  
+}
+
+.map-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(10%, 15vw, 20%);
+  height: clamp(100%, 100%, 120%);
+  background-color: var(--orange); 
+  z-index: -1;
+}
+
+.map-wrapper h2 {
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw + 1rem, 5.4rem);
+  line-height: clamp(3rem, 6vw + 2rem, 8rem);
+}
+
+.map-wrapper h2 span {
+  color: var(--orange);
+}
+
+.map-wrapper p {
+  font-weight: 600;
+  font-size: clamp(1rem, 1.5vw + 1rem, 1.4rem);
+  line-height: clamp(1.5rem, 2.5vw + 1rem, 2.4rem);
+  letter-spacing: clamp(0.1%, 0.2vw, 0.1%);
+  color: var(--black);
+  max-width: clamp(40rem, 50vw, 50rem);
+}
+
+.map-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
+  max-width: clamp(400px, 80vw, 500px);
+  box-shadow: 0px 10px -14px 14px #FFF;
+  margin-top: 2.5rem;
+
+}
+
+.map-wrapper input,
+.map-wrapper select {
+  padding: clamp(0.8rem, 1vw, 1rem);
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  border: 1px solid var(--primary);
+  border-radius: clamp(3px, 0.5vw, 4px);
+  width: 100%;
+  color: #000;
+  box-sizing: border-box;
+
+}
+
+.map-wrapper input::placeholder {
+  color: #000;
+}
+
+.map-wrapper input:focus,
+.map-wrapper select:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+
+
+@media (max-width: 768px) {
+  .map-wrapper {
+    padding: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .map-wrapper h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .map-wrapper p {
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    margin-bottom: 2rem;
+  }
+
+  .map-wrapper form {
+    gap: clamp(0.8rem, 1vw, 1rem);
+  }
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+
+}
+
+.input-container input {
+  width: 100%;
+  padding: clamp(0.8rem, 1vw, 10px);
+  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+  border: 1px solid #E0E0E0;
+}
+
+.placeholder {
+  position: absolute;
+  top: 20px; 
+  left: 10px; 
+  transform: translateY(-50%); 
+  pointer-events: none;
+  transition: 0.3s ease;
+  color: grey;
+  font-size: clamp(1.3rem, 1.5vw, 1.6rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.required {
+  color: orange;
+}
+
+.filled {
+  top: -6px;
+  font-size: clamp(1rem, 1vw, 0.8rem);
+  color: black;
+}
+
+.email input::placeholder {
+  color: gray;
+}
+
+.custom-select {
+  background-color: #f0f0f0;
+  border: none;
+  padding: clamp(0.8rem, 1vw, 10px) clamp(2rem, 2.5vw, 40px) clamp(0.8rem, 1vw, 10px) clamp(0.8rem, 1vw, 10px);
+  border-radius: clamp(3px, 0.5vw, 5px);
+  font-size: clamp(1rem, 1.5vw, 16px);
+  color: #333;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.custom-select:focus {
+  background-color: #e0e0e0;
+}
+
+.map-button {
+  background-color: var(--orange);
+  color: #fff;
+  width: 100%;
+  padding: clamp(0.8rem, 1vw, 1.2rem) clamp(1.6rem, 2vw, 2.4rem);
+  gap: clamp(0.5rem, 1vw, 1rem);
+  font-weight: 700;
+  transition: all 400ms ease-in;
+}
+
+.map-button:hover {
+  color: var(--orange);
+  background-color: #fff;
+  border: 1px solid var(--orange);
+}
+
+.contact {
+  display: flex;
+  gap: clamp(3rem, 4vw, 5rem);
+  margin-top: clamp(4rem, 6vw, 6rem);
+}
+
+.contact-contain {
+  display: flex;
+  align-items: center;
+}
+
+.contact-contain svg {
+  width: clamp(2rem, 2.5vw, 2.8rem);
+  height: clamp(2rem, 2.5vw, 2.8rem);
+  margin-right: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.contact-info h3,
+.contact-info p {
+  font-weight: 400;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  letter-spacing: clamp(1%, 0.2vw, 2%);
+}
+
+.contact-info p {
+  color: var(--orange);
+}
+
+iframe {
+  position: absolute;
+  top: clamp(5%, 6vw, 10%);
+  right: clamp(5%, 6vw, 10%);
+  border: none;
+}
+
+@media (max-width:950px) {
+  .map-wrapper {
+    flex-direction: column;
+    display: flex;
+  }
+  iframe {
+    position: relative;
+    width: clamp(200px, 100%, 1000px);
+    height: clamp(300px, 400px, 500px); 
+    margin-top: 4rem;
+    right: 0;
+  }
+  .map-wrapper::after {
+    display: none;
+     }
+}
+
+
+
+@media (max-width:500px) {
+  .contact {
+    flex-direction: column;
+  }
+
+  .map-wrapper::after {
+    height: clamp(100%, 103%, 103%); 
+  }
+
+}
+
+
+.popup {
+  position: fixed;
+  bottom: 20%;
+  right: 20px;
+  background-color: #4CAF50; 
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.5s ease;
+  z-index: 1000; 
+}
+.error {
+  color: red !important; 
+ font-size: 1rem !important;
+
+}

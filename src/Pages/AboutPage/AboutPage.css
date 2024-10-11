@@ -1,0 +1,128 @@
+.AboutContent {
+    margin-top: clamp(4rem, 5vw, 5.5rem);
+}
+
+.about-top {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-top-img {
+    width: clamp(40rem, 50vw, 57rem);
+    height: clamp(40rem, 50vw, 58rem);
+    margin-right: clamp(2rem, 4vw, 6rem);
+}
+
+.about-top-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.about-right-top {
+    margin-top: clamp(3rem, 4vw, 4.7rem);
+    width: clamp(30rem, 45vw, 49rem);
+
+}
+
+.about-right-top h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2vw, 1.8rem);
+    color: var(--orange);
+}
+
+.about-right-top h2 {
+    font-weight: 600;
+    font-size: clamp(3.2rem, 4vw, 4.6rem);
+    letter-spacing: -3%;
+    margin-top: clamp(1.5rem, 2vw, 1.9rem);
+    
+}
+
+.about-right-top p {
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    letter-spacing: 2%;
+    margin-top: clamp(1rem, 2vw, 1.6rem);
+}
+
+.about-center {
+    margin-top: clamp(4rem, 6vw, 6.4rem);
+}
+
+.about-center > h2 {
+    text-align: center;
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(54rem, 1fr)); 
+    gap: clamp(2rem, 3vw, 3.3rem);
+    margin-top: clamp(2rem, 4vw, 3.6rem);
+}
+
+.about-cards img {
+    width: clamp(8rem, 10vw, 10rem);
+    height: clamp(8rem, 10vw, 10rem);
+    margin-top: -2rem;
+  
+}
+
+.card-top {
+    border-radius: 0.8rem;
+    text-align: center;
+    box-shadow: 0.4rem 0.4rem 1rem rgba(228, 142, 51, 0.3); 
+    transition: all 400ms ease;
+}
+
+.card-top:hover {
+    transform: scale(0.9);
+}
+
+.card-top p {
+    margin-bottom: clamp(3rem, 4vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 2%;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+}
+.card-inner{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .about-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-top-img, .about-right-top {
+        width: 100%;
+        margin-right: 0;
+    }
+
+
+    .about-cards {
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+    .about-top-img img {
+        height: auto;
+    }
+    .about-top-img{
+      height: auto;
+    }
+}
+
+@media (max-width: 1188px){
+    .about-top-img, .about-right-top {
+        width: 100%;
+        margin-right: 0;
+    }
+    .about-top {
+        flex-direction: column;
+        align-items: center;
+    }
+}

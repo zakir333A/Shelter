@@ -1,0 +1,120 @@
+.content-head {
+    display: flex;
+    margin-top: 5.8rem;
+}
+
+.head-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden; 
+}
+
+.head-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.head-history {
+    background-color: #047CD1;
+    color: #fff;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3rem;
+}
+
+.head-history h3 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2vw, 2.4rem); 
+    letter-spacing: 2%;
+    color: var(--orange);
+}
+
+.head-history p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2vw, 2.4rem); 
+    letter-spacing: 2%;
+    margin-bottom: 1rem;
+}
+
+.arrow-detail {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-bottom {
+    margin-top: 8.3rem;
+}
+
+.content-bottom h2 {
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 4.6rem); 
+    letter-spacing: -3%;
+}
+
+.content-bottom p {
+    font-weight: 400;
+    font-size: clamp(1rem, 2vw, 1.6rem); 
+    letter-spacing: 2%;
+    margin-top: 3.6rem;
+    padding-bottom: 1rem;
+}
+
+.arrow-detail {
+    width: 62%;
+    padding-block: 2rem;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.arrow-detail a {
+    width: 120px;
+    background-color: var(--orange);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: clamp(1rem, 2vw, 1.7rem); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    transition: 300ms ease-in;
+}
+
+.arrow-detail a:hover {
+    background-color: #047CD1;
+}
+
+@media (max-width: 768px) {
+    .content-head {
+        flex-direction: column;
+    }
+
+    .head-image {
+        height: auto; 
+    }
+
+    .head-image img {
+        width: 100%;
+        height: auto; 
+    }
+
+    .head-history {
+        max-width: 100%;
+        margin-left: 0;
+        padding-block: 1rem;
+    }
+
+    .head-history h3 {
+        font-size: clamp(1.2rem, 2vw, 1.4rem); 
+    }
+  
+    
+}

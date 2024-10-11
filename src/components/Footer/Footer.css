@@ -1,0 +1,25 @@
+.foot-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 11rem;
+}
+
+.foot-content .logo  {
+    height:80px;
+    width: 82px;
+}
+.foot-content .logo img{
+    width: 100%;
+    height:100%;
+}
+@media (max-width:400px) {
+    .foot-content{
+        flex-direction: column;
+        margin-top: 3rem;
+    }
+    .foot-content .icons{
+       margin-top: 1rem;
+    }
+ 
+}

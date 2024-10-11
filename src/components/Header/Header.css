@@ -1,0 +1,40 @@
+.h-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px; 
+}
+
+.h-wrapper .logo_area {
+  max-width: clamp(8rem, 10vw, 10.9rem);
+  width: clamp(8rem, 10vw, 10.9rem);
+  height: 80px; 
+}
+
+.h-wrapper .logo_area img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+}
+
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 1rem;
+  font-size: 1.5rem; 
+}
+
+
+

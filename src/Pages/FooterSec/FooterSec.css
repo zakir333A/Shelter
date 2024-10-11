@@ -1,0 +1,192 @@
+.footerSec {
+    background-color: #000000E5;
+    color: #fff;
+    width: 100%;
+    margin-top: clamp(2rem, 5vw, 4rem);
+    padding-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+
+.footContent {
+    display: flex;
+    gap: clamp(2rem, 4vw, 4.4rem);
+    padding-top: clamp(1.4rem, 3vw, 2.8rem); 
+    flex-wrap: nowrap;
+}
+
+.footContent > div {
+    margin-right: clamp(2rem, 4vw, 5.4rem);
+    flex: 1;
+}
+
+.footContent li {
+    margin-bottom: clamp(1rem, 3vw, 1.9rem);
+    color: #fff;
+}
+.footContent li:hover{
+    color: var(--orange);
+}
+
+.footContent h2 {
+    font-weight: 600;
+    font-size: clamp(1.8rem, 2vw, 1.4rem);
+    line-height: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: clamp(1rem, 3vw, 1.9rem);
+}
+
+.footContent a,
+.footContent span {
+    font-weight: 500;
+    font-size: clamp(1.2rem, 1.5vw, 1rem);
+    line-height: clamp(1.2rem, 2.5vw, 1.5rem);
+    display: flex;
+}
+
+.footContent a:hover {
+    color: var(--orange);
+    display: flex;
+}
+.contactUs a{
+    color: #fff;
+}
+.contactUs span{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    height: 4.8rem;
+    padding-right: 4rem;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.input-wrapper input::placeholder {
+    font-size: 1.5rem;
+}
+
+.input-wrapper .input-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 4rem;
+    background-color: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    height: 100%;
+}
+.footContent .services{
+    display: flex;
+    flex-direction: column;
+}
+.footContent .services a{
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 1.9rem;
+}
+.footContent .services a:hover{
+    color: var(--orange);
+}
+
+
+
+
+@media (max-width: 48rem) {
+    .input-wrapper input {
+        width: 100%;
+    }
+    .footContent {
+        flex-direction: column;
+        gap: clamp(1rem, 2vw, 2rem);
+        padding-top: clamp(1rem, 2vw, 2rem);
+    }
+
+    .footContent > div {
+        margin-right: 0;
+    }
+
+    .footContent h2 {
+        font-size: clamp(1.3rem, 1.5vw, 1.2rem);
+        margin-bottom: clamp(0.8rem, 2vw, 1.2rem);
+    }
+
+    .footContent a,
+    .footContent span {
+        font-size: clamp(1.2rem, 1.5vw, 0.9rem);
+        line-height: clamp(1rem, 2vw, 1.4rem);
+    }
+
+    .footContent li {
+        margin-bottom: clamp(0.8rem, 2vw, 1.2rem);
+    }
+}
+
+@media (max-width: 30rem) {
+    .footContent h2 {
+        font-size: clamp(1rem, 1.2vw, 1rem);
+        margin-bottom: clamp(0.6rem, 1.5vw, 1rem);
+    }
+
+    .footContent a,
+    .footContent span {
+        font-size: clamp(1rem, 1vw, 0.8rem);
+       
+    }
+
+    .footContent li {
+        margin-bottom: clamp(0.6rem, 1vw, 1rem);
+    }
+}
+
+@media (max-width: 62.5rem) {
+    .footContent {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 100rem) {
+    .footContent {
+        flex-wrap: nowrap;
+    }
+}
+
+
+
+.footContent > div {
+    flex: 1 1 calc(25% - clamp(2rem, 4vw, 5.4rem)); 
+}
+
+@media (max-width: 75rem) { 
+    .footContent > div {
+        flex: 1 1 calc(33.33% - clamp(2rem, 4vw, 5.4rem)); 
+    }
+}
+
+@media (max-width: 48rem) { 
+    .footContent > div {
+        flex: 1 1 calc(50% - clamp(2rem, 4vw, 5.4rem)); 
+    }
+}
+
+@media (max-width: 30rem) { 
+    .footContent > div {
+        flex: 1 1 100%; 
+        margin-right: 0; 
+    }
+}
