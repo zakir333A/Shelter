@@ -1,18 +1,46 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState, lazy } from 'react';
 import { motion } from 'framer-motion';
-import Header from '../../components/Header/Header';
-import Navbar from '../../components/Navbar/Navbar';
 import ServicesBanner from '../ServicesPage/ServicesBanner/ServicesBanner';
 import Map from '../../components/Map/Map';
 import ContactTeam from './ContactTeam';
-import FooterSec from '../FooterSec/FooterSec';
-import FootEnd from '../FooterSec/FootEnd';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+
+const Navbar = lazy(() => import('../../components/Navbar/Navbar'));
 
 const ContactPage = () => {
-  const customImage = '../xid.jpg'; 
-  const customName = 'Əlaqə'; 
+  const [customImage, setCustomImage] = useState('');  
+  const [customName, setCustomName] = useState(''); 
   const navigate = useNavigate(); 
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+
+  useEffect(() => {
+    const fetchContactData = async () => {
+      try {
+        const response = await fetch('http://192.168.88.225:8000/api/static/page/contact'); 
+        if (!response.ok) {
+          throw new Error('Failed to fetch contact data');
+        }
+        const data = await response.json();
+        setCustomImage(data.hero_image);
+        setCustomName(data.hero_title);
+      } catch (error) {
+        console.error('Error fetching contact data:', error);
+      }
+    };
+
+    fetchContactData();
+
+    const handleResize = () => {
+      setIsNavbarVisible(window.innerWidth > 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleLogoClick = () => {
     // navigate('/'); 
@@ -28,8 +56,7 @@ const ContactPage = () => {
       <>
         <div onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
           <motion.div initial="hidden" animate="visible" variants={sectionVariants} transition={{ duration: 0.5 }}>
-            <Header />
-            <Navbar />
+       
           </motion.div>
         </div>
         <motion.div variants={sectionVariants} initial="hidden" animate="visible" transition={{ duration: 0.5, delay: 0.2 }}>
@@ -41,12 +68,7 @@ const ContactPage = () => {
         <motion.div variants={sectionVariants} initial="hidden" animate="visible" transition={{ duration: 0.5, delay: 0.6 }}>
           <ContactTeam />
         </motion.div>
-        <motion.div variants={sectionVariants} initial="hidden" animate="visible" transition={{ duration: 0.5, delay: 0.8 }}>
-          <FooterSec />
-        </motion.div>
-        <motion.div variants={sectionVariants} initial="hidden" animate="visible" transition={{ duration: 0.5, delay: 1 }}>
-          <FootEnd />
-        </motion.div>
+  
       </>
     </Suspense>
   );

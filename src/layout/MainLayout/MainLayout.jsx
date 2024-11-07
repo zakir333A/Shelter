@@ -1,23 +1,35 @@
-import React from 'react'
-import Header from '../../components/Header/Header'
-import Navbar from '../../components/Navbar/Navbar'
-import Footer from '../../components/Footer/Footer'
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-import HomePage from '../../Pages/HomePage/HomePage';
-import Services from '../../Pages/ServicesPage/Services';
+import Header from '../../components/Header/Header';
+import Navbar from '../../components/Navbar/Navbar';
+import FooterSec from '../../Pages/FooterSec/FooterSec';
+import FootEnd from '../../Pages/FooterSec/FootEnd';
 
+const MainLayout = () => {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
-const MainLayout = ({children}) => {
+  const handleResize = () => {
+    setIsNavbarVisible(window.innerWidth >= 768);
+  };
+
+  useEffect(() => {
+    handleResize(); 
+    window.addEventListener('resize', handleResize); 
+
+    return () => {
+      window.removeEventListener('resize', handleResize); 
+    };
+  }, []);
+
   return (
     <>
-       
-        
-        
-        <Outlet/>
-        
-   
+      <Header />
+      {isNavbarVisible && <Navbar />} 
+      <Outlet />
+      <FooterSec />
+      <FootEnd />
     </>
-  )
+  );
 }
 
-export default MainLayout
+export default MainLayout;

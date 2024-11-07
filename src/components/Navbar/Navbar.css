@@ -2,7 +2,6 @@
   background-color: black;
   position: relative;
   z-index: 1000; 
-  
 }
 
 .navigation {
@@ -11,11 +10,11 @@
   align-items: center;
   height: clamp(6.5rem, 6vh, 6.5rem);
   background-color: var(--lightblue);
-  ;
 }
 
 .navbar ul {
   transition: all 300ms ease-in;
+  position: relative;
 }
 
 .navbar a {
@@ -25,6 +24,15 @@
   gap: clamp(3rem, 4vw, 4rem);
   margin-left: clamp(-2rem, -2.5vw, -2.5rem);
   margin-bottom: clamp(0.5rem, 1vw, 1rem); 
+}
+
+
+.navbar ul ul {
+  display: none;
+  position: absolute; 
+  background-color: black; 
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
 }
 
 .btn-shine {
@@ -80,29 +88,11 @@
   transition-duration: 1s;
 }
 
-/* Instagram */
-.containerOne:hover {
-  background-color: #d62976;
-  transition-duration: 0.3s;
-}
 
-/* Twitter */
-.containerTwo:hover {
-  background-color: #00acee;
-  transition-duration: 0.3s;
-}
-
-/* LinkedIn */
-.containerThree:hover {
-  background-color: #0072b1;
-  transition-duration: 0.3s;
-}
-
-/* WhatsApp */
-.containerFour:hover {
-  background-color: #128c7e;
-  transition-duration: 0.3s;
-}
+.containerOne:hover { background-color: #d62976; }
+.containerTwo:hover { background-color: #00acee; }
+.containerThree:hover { background-color: #0072b1; }
+.containerFour:hover { background-color: #128c7e; }
 
 .socialContainer:active {
   transform: scale(0.9);
@@ -171,7 +161,7 @@ button {
   width: 100%;
   height: clamp(0.1rem, 0.125rem, 0.125rem);
   border-radius: clamp(0.1rem, 0.125rem, 0.125rem);
-  background-color: #ffffff;
+  background-color: var(--secondary);
 }
 
 .navbar .icons {
@@ -179,35 +169,47 @@ button {
   margin-left: 2rem;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 768px) {
   .background {
     display: initial;
   }
 
-  .navigation{
+  .navigation {
     background-color: black;
     padding-inline: 1rem;
-    
-
   }
 
-  .nav-left > ul {
-    flex-direction: column;
+  .nav-left > .mobile_navMenu{
     min-width: 100%;
-    height: clamp(70vh, 50vh, 50vh);
-    background-color: var(--bg-nav);
+    height: 100vh;
     color: white;
-    justify-content: center;
-    font-size: clamp(1.5rem, 2vw, 2rem);
+    background-color: var(--bg-nav);
     position: absolute;
-    top: 100%;
+    top: 80px;
     right: 0;
-    border-bottom-left-radius: clamp(0.5rem, 1rem, 1rem);
     display: none;
   }
   
-  .nav-left > ul.open {
+  
+  .nav-left > .mobile_navMenu > ul {
+    font-size: clamp(1.5rem, 2vw, 2rem);
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom-left-radius: clamp(0.5rem, 1rem, 1rem);
+  }
+  
+  .nav-left > .mobile_navMenu.open {
+    display: block;
+  }
+
+  .mobile_search-lang{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: min(95%, 1124px);
+    margin: 1.5rem auto 1rem;
   }
   
   .navbar a {
@@ -219,5 +221,106 @@ button {
 .no-scroll {
   overflow: hidden; 
 }
+
+
+
+.submenu-mobile {
+  padding-left: 1rem;
+  display: block;
+  list-style: none;
+  background: var(--bg-nav);
+}
+
+.submenu-mobile li {
+  margin: 0.5rem 0;
+}
+
+.arrow {
+  display: none;
+  margin-left: 0.5rem;
+  font-size: 3rem;
+  vertical-align: middle;
+}
+
+
+.open .submenu-mobile {
+  display: block;
+
+  
+}
+
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  list-style: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+  .menu li:hover .submenu {
+    display: block;
+  }
+
+
+@media (max-width: 768px) {
+  .navbar{
+    position: static;
+  
+  }
+  .navbar ul > li {
+    text-align: center;
+  }
+  .arrow{ 
+    display: inline;
+  }
+  .menu  .submenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: var(--bg-nav);
+  }
+}
+
+.arrow {
+  margin-left: 0.5rem;
+  font-size: 1.6rem; 
+  cursor: pointer; 
+}
+
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: black; 
+  list-style: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  z-index: 1000; 
+}
+
+
+@media (max-width:768px) {
+      .navbar{
+        background-color: var(--lightblue);
+        
+      }
+      .navigation {
+        background-color: var(--lightblue);
+    
+      }
+      .menu__icon{
+        background-color: var(--lightblue);
+      }
+     
+      .menu__icon .icon-span {
+        width: 100%;
+        height: clamp(0.1rem, 0.125rem, 0.125rem);
+        border-radius: clamp(0.1rem, 0.125rem, 0.125rem);
+        background-color: var(--black);
+      }
+    
+}
+
 
 

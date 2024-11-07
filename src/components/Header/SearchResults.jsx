@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import Header from './Header';
-import Footer from '../Footer/Footer';
 import './SearchComponent.css';
 import '../../components/Header/SearchResults.css';
-import Navbar from '../Navbar/Navbar';
+
+
+const Header = lazy(() => import('./Header'));
+const Footer = lazy(() => import('../Footer/Footer'));
+const Navbar = lazy(() => import('../Navbar/Navbar'));
 
 function SearchResults() {
   const location = useLocation();
@@ -17,9 +19,10 @@ function SearchResults() {
   const [allServicesDetails, setAllServicesDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
-  const [selectedCategory, setSelectedCategory] = useState('All'); 
-  const [categoryWithResults, setCategoryWithResults] = useState([]); 
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [categoryWithResults, setCategoryWithResults] = useState([]);
   const resultsPerPage = 10;
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     const fetchAllData = async () => {
@@ -39,7 +42,6 @@ function SearchResults() {
 
     fetchAllData();
   }, []);
-
 
   useEffect(() => {
     const normalizedQuery = query ? query.toLowerCase() : '';
@@ -63,11 +65,9 @@ function SearchResults() {
         ...filteredServicesDetails.map(result => ({ ...result, type: 'services-details' }))
       ];
 
-
       if (selectedCategory !== 'All') {
         combinedResults = combinedResults.filter(result => result.type === selectedCategory);
       }
-
 
       const categoriesWithData = [];
       if (filteredProjects.length > 0) categoriesWithData.push('projects');
@@ -92,7 +92,7 @@ function SearchResults() {
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    setPage(1); // Reset to first page
+    setPage(1); 
   };
 
   const categories = [
@@ -103,71 +103,89 @@ function SearchResults() {
     { name: 'Elaqe', type: 'services-details' }
   ];
 
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  useEffect(() => {
+
+    window.addEventListener('resize', handleResize);
+
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <> 
-    <Header />
-    <Navbar/>
-    <div className="search-results-page container">
-     
-      <div className="search-results-container">
-        <div className="sidebar">
-          <h3>Kateqoriyalar</h3>
-          <ul>
-  {categories.map(category => (
-    <li 
-      key={category.name} 
-      className={selectedCategory === category.type ? 'active' : ''}
-      style={{
-        backgroundColor: categoryWithResults.length === 1 && categoryWithResults.includes(category.type) ? 'var(--orange)' : '',
-        color: categoryWithResults.length === 1 && categoryWithResults.includes(category.type) ? 'white' : '',
-        padding: '10px 20px' 
-      }}
-      onClick={() => handleCategoryClick(category.type)} 
-    >
-      {category.name}
-    </li>
-  ))}
-</ul>
+      <Suspense fallback={<div>Loading header...</div>}>
+        <Header />
+      </Suspense>
+      {!isMobile && (
+        <Suspense fallback={<div>Loading navigation...</div>}>
+          <Navbar />
+        </Suspense>
+      )}
+      <div className="search-results-page container">
+        <div className="search-results-container">
+          <div className="sidebar">
+            <h3>Kateqoriyalar</h3>
+            <ul>
+              {categories.map(category => (
+                <li 
+                  key={category.name} 
+                  className={selectedCategory === category.type ? 'active' : ''}
+                  style={{
+                    backgroundColor: categoryWithResults.length === 1 && categoryWithResults.includes(category.type) ? 'var(--orange)' : '',
+                    color: categoryWithResults.length === 1 && categoryWithResults.includes(category.type) ? 'white' : '',
+                    padding: '10px 20px' 
+                  }}
+                  onClick={() => handleCategoryClick(category.type)} 
+                >
+                  {category.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="main-content">
+            <h2>Axtarış Nəticələri: {query}</h2>
 
+            {loading ? (
+              <p>Yüklənir...</p>
+            ) : (
+              <>
+                {paginatedResults.length > 0 ? (
+                  <div className="results-list">
+                    {paginatedResults.map(result => (
+                      <div key={`${result.type}-${result.id}`} className="result-item">
+                        <Link to={`/${result.type === 'services-card' ? 'services' : result.type}/${result.id}`}>
+                          <h3>{result.title || 'Başlıq yoxdur'}</h3>
+                          <p>Kateqoriya: {result.type.replace('-', ' ')}</p>
+                          {result.image && <img src={result.image} alt={result.title} className="result-image" />}
+                          {result.description && <p>{result.description}</p>}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p>Nəticə tapilmadi</p>
+                )}
+
+                {allResults.length > endIndex && (
+                  <button className="load-more-btn" onClick={handleLoadMore}>
+                    Daha çox yüklə
+                  </button>
+                )}
+              </>
+            )}
+          </div>
         </div>
-        <div className="main-content">
-          <h2>Axtarış Nəticələri: {query}</h2>
-
-          {loading ? (
-            <p>Yüklənir...</p>
-          ) : (
-            <>
-              {paginatedResults.length > 0 ? (
-                <div className="results-list">
-                  {paginatedResults.map(result => (
-                    <div key={`${result.type}-${result.id}`} className="result-item">
-                      <Link to={`/${result.type === 'services-card' ? 'services' : result.type}/${result.id}`}>
-                        <h3>{result.title || 'Başlıq yoxdur'}</h3>
-                        <p>Kateqoriya: {result.type.replace('-', ' ')}</p>
-                        
-                       
-                        {result.image && <img src={result.image} alt={result.title} className="result-image" />}
-                        {result.description && <p>{result.description}</p>}
-                        
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p>Nəticə tapilmadi</p>
-              )}
-
-              {allResults.length > endIndex && (
-                <button className="load-more-btn" onClick={handleLoadMore}>
-                  Daha çox yüklə
-                </button>
-              )}
-            </>
-          )}
-        </div>
+        <Suspense fallback={<div>Loading footer...</div>}>
+          <Footer />
+        </Suspense>
       </div>
-      <Footer />
-    </div>
     </>
   );
 }

@@ -4,6 +4,7 @@
     width: 100%;
     margin-top: clamp(2rem, 5vw, 4rem);
     padding-bottom: clamp(1rem, 2vw, 2rem);
+
 }
 
 
@@ -190,3 +191,18 @@
         margin-right: 0; 
     }
 }
+
+.footerSec .footContent a {
+    color: white;
+    text-decoration: none; 
+  }
+
+  .footerSec .footContent a:hover {
+    color: #ccc; 
+  }
+  
+
+  .footerSec .footContent .active {
+    color: #f0f0f0; 
+  }
+  

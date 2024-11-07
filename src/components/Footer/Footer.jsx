@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Suspense, lazy } from 'react';
 import '../Footer/Footer.css';
+import { MainContext, useContext } from "../Context";
 
 const InstagramIcon = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaInstagram })));
 const TwitterIcon = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaTwitter })));
@@ -7,33 +8,39 @@ const LinkedInIcon = lazy(() => import('react-icons/fa').then(module => ({ defau
 const WhatsAppIcon = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaWhatsapp })));
 
 function Footer() {
+  const { URLAPI, lang } = useContext(MainContext); 
   const [logo, setLogo] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchLogoData = async () => {
       try {
-        const response = await fetch('/db.json');
+        const response = await fetch(`${URLAPI}/api/settings?lang=${lang}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setLogo(data.logo);
+        const logoData = data.data.find(item => item.key === "logo");
+        if (logoData) {
+          setLogo({ imageUrl: logoData.value, altText: "Logo" });
+        } else {
+          setError('Logo not found.');
+        }
       } catch (error) {
-        console.error('Error Data:', error);
-        setError('Error Data.');
+        console.error('Error fetching logo data:', error);
+        setError('Error fetching data.');
       }
     };
 
     fetchLogoData();
-  }, []);
+  }, [URLAPI, lang]); 
 
   if (error) {
     return <p>{error}</p>;
   }
 
   if (!logo) {
-    return <p>Waiting...</p>;
+    return <p>Loading...</p>; 
   }
 
   return (

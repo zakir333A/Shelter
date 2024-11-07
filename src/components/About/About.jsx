@@ -1,29 +1,64 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy, useContext } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer'; 
-import { Link } from 'react-router-dom';  
+import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
 import './About.css';
+import { MainContext } from "../Context";
 
 const FaChevronRight = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaChevronRight })));
 
 function About() {
+    const { URLAPI, lang } = useContext(MainContext); 
     const [aboutData, setAboutData] = useState(null);
+    const [seeMoreText, setSeeMoreText] = useState('Daha çox öyrən'); 
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchAboutData = async () => {
             try {
-                const response = await fetch('/db.json');
+                const response = await fetch(`${URLAPI}/api/about-us/home?lang=${lang}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
                 const data = await response.json();
-                setAboutData(data.navbar.about);
+                
+                setAboutData({
+                    mainImageUrl: data.left_image,
+                    aboutTitle: data.header_text,
+                    heading: data.short_description,
+                    shortDescription: data.short_description,
+                    smallImages: data.subbrands.map(brand => ({
+                        id: brand.id,
+                        imageUrl: brand.logo,
+                        altText: brand.logo_alt,
+                    })),
+                    buttonUrl: '/about',
+                });
             } catch (error) {
-                console.error('Error Data:', error);
-                setError('Error Data.');
+                console.error('Error fetching about data:', error);
+                setError('Məlumatı çəkməkdə xəta baş verdi.');
+            } finally {
+                setLoading(false);
             }
         };
 
-        fetchData();
-    }, []);
+        const fetchSeeMoreText = async () => {
+            try {
+                const response = await fetch(`${URLAPI}/api/static/text/link-see-more?lang=${lang}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch "See More" text');
+                }
+                const data = await response.json();
+                setSeeMoreText(data.text);
+            } catch (error) {
+                console.error('Error fetching "See More" text:', error);
+            }
+        };
+
+        fetchAboutData();
+        fetchSeeMoreText();
+    }, [URLAPI, lang]);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
@@ -36,16 +71,23 @@ function About() {
     };
 
     const { ref, inView } = useInView({
-        threshold: 0.2, 
-        triggerOnce: false, 
+        threshold: 0.2,
+        triggerOnce: true,
     });
 
+    if (loading) return <p>Gözləyir...</p>;
+
     if (error) {
-        return <p>{error}</p>;
+        return (
+            <div>
+                <p>{error}</p>
+                <button onClick={() => window.location.reload()}>Yenidən cəhd et</button>
+            </div>
+        );
     }
 
     if (!aboutData) {
-        return <p>Waiting...</p>;
+        return <p>Məlumat tapılmadı.</p>;
     }
 
     return (
@@ -74,30 +116,30 @@ function About() {
                 >
                     <div className="about-content">
                         <motion.h2 variants={fadeInUp}>{aboutData.aboutTitle}</motion.h2>
-                        <motion.h3 variants={fadeInUp} transition={{ delay: 0.1 }}>
+                        <motion.p variants={fadeInUp} transition={{ delay: 0.1 }}>
                             {aboutData.heading}
-                        </motion.h3>
+                        </motion.p>
                         <motion.p variants={fadeInUp} transition={{ delay: 0.2 }}>
-                            {aboutData.paragraph}
+                            {aboutData.shortDescription}
                         </motion.p>
                     </div>
                     {aboutData.smallImages.map((image, index) => (
-                        <motion.img 
+                        <motion.img
                             key={image.id}
                             src={image.imageUrl}
-                            alt={image.altText}
+                            alt={image.altText || 'Subbrand logo'}
                             className="about-small-image"
                             variants={fadeInUp}
                             transition={{ delay: 0.2 + 0.1 * index }}
                         />
                     ))}
                     <motion.div whileHover={{ scale: 1.05 }}>
-                        <Link to={aboutData.buttonUrl} className="about-button"> 
-                            {aboutData.buttonText}
-                            <Suspense fallback={<span>Waiting icon...</span>}>
+                        <Suspense fallback={<span>Gözləyir...</span>}>
+                            <Link to={aboutData.buttonUrl} className="about-button">
+                                {seeMoreText}
                                 <FaChevronRight />
-                            </Suspense>
-                        </Link>
+                            </Link>
+                        </Suspense>
                     </motion.div>
                 </motion.div>
             </motion.div>

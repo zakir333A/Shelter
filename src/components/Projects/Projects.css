@@ -55,6 +55,9 @@
     padding: 1rem; 
  
 }
+.pro-card a{
+    line-height: 0;
+}
 
 .pro-link {
     width: 100%;
@@ -88,7 +91,7 @@
 
     .pro-card {
         width: 100%; 
-        height: auto;
+        /* height: auto; */
     }
 
     .pro-image{

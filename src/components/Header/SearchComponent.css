@@ -1,4 +1,4 @@
-/* From Uiverse.io by joe-watson-sbf */ 
+
 .search {
     display: flex;
     align-items: center;
@@ -55,16 +55,13 @@
 
   }
 
-  @media (max-width:550px) {
-    .search__input {
- 
-      width: 14rem;
-      
-      
-    }
-    .search-container{
-      margin-right: 2rem;
-    }
-  
+@media screen and (max-width: 780px) {
+  .search{
+    justify-content: unset;
+    width: 100%;
+  }
 
+  .search__input{
+    width: 100%;
+  }
 }

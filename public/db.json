@@ -2,9 +2,44 @@
     "logo": {
       "id": "logo",
       "altText": "Company Logo",
-      "imageUrl": "../logos.png"
+      "imageUrl": "../../logos.png"
  
     },
+    "shelter": [
+      {
+        "id":1,
+        "title": "Mini Bunker",
+         "img":"../tab.jpg"
+      },
+      {
+        "id":2,
+        "title": "Standard Bomb Shelter",
+         "img":"../tab.jpg"
+      },
+      {
+        "id":3,
+        "title": "Luxury Bunker",
+         "img":"../tab.jpg"
+      }
+    ],
+    "equipment" : [
+      {
+        "id":1,
+        "title": "Hava filtrləmə sistemləri",
+         "img":"../tab.jpg"
+      },
+      {
+        "id":2,
+        "title": "Dezinfeksiya otaqları",
+         "img":"../tab.jpg"
+      },
+      {
+        "id":3,
+        "title": "Su təchizat sistemləri",
+         "img":"../tab.jpg"
+      }
+
+    ],
     "navbar": {
       "links": [
         {
@@ -16,11 +51,16 @@
           "id": "services",
           "text": "Xidmətlər",
           "url": "/services"
+      
         },
         {
           "id": "projects",
-          "text": "Sığınacaqlarımız",
-          "url": "/projects"
+          "text": "Mehsullar",
+          "url": "/category",
+          "submenu": [
+            { "id": "service-1", "text": "Siginacaqlar", "url": "/category/shelter" },
+            { "id": "service-2", "text": "Təchizat və Aksesuarlar", "url": "/category/equipment" }
+          ]
         },
         {
           "id": "about",
@@ -39,6 +79,15 @@
         }
         
       ],
+      "blogContain": [
+        {
+          "id": 1,
+          "imageUrl": "../../vite-project/public/air.png",
+          "heading": "Understanding React",
+          "date": "October 1, 2024",
+          "description": "A deep dive into the core concepts of React, including components, state management, and hooks."
+        }
+      ],
   "hero": {
     "backgroundImageUrl": "./home.jpg",
     "heading": "Qoruma Mərkəzi",
@@ -54,7 +103,7 @@
     "smallImages": [
       {
         "id": "img1",
-        "imageUrl": "./aboutmini.png",
+        "imageUrl": "../aboutmini.png",
         "altText": "Team at work"
       },
       {
@@ -109,6 +158,22 @@
       { "id": 1, "imageUrl": "/partner-1.png" },
       { "id": 2, "imageUrl": "/partner-2.png" }
     ],
+    
+    
+      "slides": [
+        { "id": 1, "src": "carousel01.png", "alt": "Slide 1" },
+        { "id": 2, "src": "caouesel02.png", "alt": "Slide 2" },
+        { "id": 3, "src": "carousel01.png", "alt": "Slide 3" },
+        { "id": 4, "src": "caouesel02.png", "alt": "Slide 4" },
+        { "id": 5, "src": "carousel01.png", "alt": "Slide 5" },
+        { "id": 6, "src": "caouesel02.png", "alt": "Slide 6" },
+        { "id": 7, "src": "carousel01.png", "alt": "Slide 7" },
+        { "id": 8, "src": "caouesel02.png", "alt": "Slide 8" }
+      ],
+    
+    
+    
+    
 
     
       "banner": {
@@ -228,7 +293,7 @@
     { "name": "Əlaqə", "url": "/contact" }
   ],
   "services": [
-    { "id": "1", "name": "Tibbi Yardim", "url": "/services/1" },
+    { "id": "1", "name": "Tibbi Yardim", "url": "services/1" },
     { "id": "2", "name": "Psixoloji Destek", "url": "/services/2" },
     { "id": "3", "name": "Geceleme ve yemek Teminati", "url": "/services/3" },
     { "id": "4", "name": "Huquqi Yardim", "url": "/services/4" },
@@ -362,7 +427,7 @@
         {
           "id": "1",
           "title": "Electrical and Mechanical Systems",
-          "mainImageUrl": "./siginacaq-1.avif",
+          "mainImageUrl": "../../siginacaq-1.avif",
           "linkText": "Daha ətraflı",
           "linkUrl": "/projects/1"
           
@@ -370,39 +435,71 @@
         {
           "id": "2",
           "title": "Air Conditioning Installations",
-          "mainImageUrl": "./siginacaq-2.avif",
+          "mainImageUrl": "../../siginacaq-2.avif",
           "linkText": "Daha ətraflı",
           "linkUrl": "/projects/2"
         },
         {
           "id": "3",
           "title": "Advanced Refrigeration Solutions",
-          "mainImageUrl": "./siginacaq-3.jpg",
+          "mainImageUrl": "../../siginacaq-3.jpg",
           "linkText": "Daha ətraflı",
           "linkUrl": "/projects/3"
         },
         {
           "id": "4",
           "title": "F Gas Regulation Services",
-          "mainImageUrl": "./siginacaq-4.jpg",
+          "mainImageUrl": "../../siginacaq-4.jpg",
           "linkText": "Daha ətraflı",
           "linkUrl": "/projects/4"
         },
         {
           "id": "5",
           "title": "Renewable Energy Solutions",
-          "mainImageUrl": "./siginacaq-5.jpeg",
+          "mainImageUrl": "../../siginacaq-5.jpeg",
           "linkText": "Daha ətraflı",
           "linkUrl": "/projects/5"
         },
         {
           "id": "6",
           "title": "Electricity and Gas Metering",
-          "mainImageUrl": "./siginacaq-6.webp",
+          "mainImageUrl": "../../siginacaq-6.webp",
           "linkText": "Daha ətraflı",
           "linkUrl": "/projects/6"
         }
       ],
+      "categories": [
+    {
+      "id": 1,
+      "title": "Sığınacaq",
+      "imageUrl": "/about-1.png"
+    },
+    {
+      "id": 2,
+      "title": "Təchizat",
+      "imageUrl": "/about-1.png"
+    },
+    {
+      "id": 3,
+      "title": "Aksesuarlar",
+      "imageUrl": "/about-1.png"
+    },
+    {
+      "id": 4,
+      "title": "Modul Tikililər",
+      "imageUrl": "/about-1.png"
+    },
+    {
+      "id": 5,
+      "title": "Hərbi Məhsullar",
+      "imageUrl": "/about-1.png"
+    },
+    {
+      "id": 6,
+      "title": "Avadanlıqlar",
+      "imageUrl": "/about-1.png"
+    }
+  ],
       "projectsDetails": [
         {
           "id": 1,
@@ -487,6 +584,23 @@
           "detailTitle": "Project Detail",
           "description": "Development of smart home systems for Smart Homes.",
           "imageUrl": "../siginacaq-6.webp"
+        }
+      ],
+      "secondnavname": [
+        {
+          "id": 1,
+          "label": "Mehsullar",
+          "link": "/category"
+        },
+        {
+          "id": 2,
+          "label": "Siginacaqlar",
+          "link": "/category/shelter"
+        },
+        {
+          "id": 3,
+          "label": " Təchizat və Aksesuarlar",
+          "link": "/category/equipment"
         }
       ],
       "aboutContent": {
@@ -615,6 +729,16 @@
         "subHeading": "Take a look at our facility below or",
         "buttonText": "Browse Our Courses",
         "imageUrl": "/siginacaq-4.jpg"
+      }
+      
+    ],
+    "blogs": [
+      {
+        "id": 1,
+        "title": "Salam",
+        "date": "2024-10-23",
+        "imageUrl": "../public/About.jpeg",
+        "content": "Lorem ipsum dolor sit amet consectetur adipisicing."
       }
     ]
   

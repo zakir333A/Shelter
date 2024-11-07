@@ -15,6 +15,7 @@
   --shadow: 0px 23px 21px -8px rgba(136, 160, 255, 0.25);
   --blog-1: #ffe6b2;
   --bg-nav: #131110;
+
 }
 
 .dark-mode {
@@ -26,7 +27,7 @@
   --lightBlue: #1a1a1a;
   --shadow: 0px 23px 21px -8px rgba(0, 0, 0, 0.25); 
   --dark-blog-1: #3b3b3b;
-  /* --bg-nav: #1e1e1e; */
+  
 }
 
 
@@ -38,11 +39,11 @@ body {
   background-color: var(--lightBlue); 
   color: var(--black);
 }
-
+/* 
 .dark-mode body {
-  background-color: var(--black);
+  background-color: red;
   color: var(--secondary);
-}
+} */
 
 
 * {
@@ -122,8 +123,16 @@ ul,li{
 }
 
 
-::selection{
+
+::selection {
   color: #ff922d;
+  background: transparent;
+}
+
+
+a::selection {
+  color: inherit; 
+  background: transparent;
 }
 
 

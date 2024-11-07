@@ -11,7 +11,7 @@
 
 .about-main img {
     max-width: 57rem;
-    height: clamp(30rem, 50vw, 50rem); 
+    height: 100%; 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
@@ -76,7 +76,7 @@
     }
     .about-main img {
         min-width: 100%;
-        height: clamp(20rem, 40vw, 30rem); 
+        /* height: clamp(20rem, 40vw, 30rem);  */
     }
 }
 

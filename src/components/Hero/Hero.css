@@ -65,6 +65,7 @@
 }
 .hero-button{
     color: #fff !important;
+    margin-top: 1rem;
 }
 @media (max-width: 768px) {
     .hero-img {
@@ -74,3 +75,5 @@
         margin-top: 1rem;
     }
 }
+
+

@@ -1,12 +1,31 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 function ProjectsCard() {
+  const {id} = useParams();
   const [projects, setProjects] = useState([]);
+  const [projects1, setProjects1] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  console.log(projects1);
+  
+
+  useEffect(() => {
+    fetch(`http://192.168.88.225:8000/api/products/subcategory/${id}`)
+      .then(response => response.json())
+      .then(data => {
+          setProjects1(data.data);
+          setLoading(false);
+      })
+      .catch(error => {
+        console.error('Data Error', error);
+        setError(error);
+        setLoading(false);
+      });
+  }, []);
 
   useEffect(() => {
     fetch('/db.json')

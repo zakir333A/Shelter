@@ -1,47 +1,56 @@
-import React, { Suspense, lazy, useState, useEffect, useCallback, useMemo } from 'react';
+import React, { Suspense, useState, useEffect, useCallback, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import '../ServicesDetails/ServicesDetails.css';
 import { FaChevronRight } from "react-icons/fa";
 import ServicesBanner from '../ServicesBanner/ServicesBanner';
-import Header from '../../../components/Header/Header';
-import Navbar from '../../../components/Navbar/Navbar';
-const FooterSec = lazy(() => import('../../FooterSec/FooterSec'));
-const FootEnd = lazy(() => import('../../FooterSec/FootEnd'));
+import { MainContext } from "../../../components/Context";
 
 function ServicesDetails() {
-  const { id } = useParams();
-  const [serviceData, setServiceData] = useState(null);
+  const { URLAPI, lang } = useContext(MainContext);
+  const { id } = useParams(); 
+  const [servicesData, setServicesData] = useState([]);
   const [selectedService, setSelectedService] = useState(null);
   const [activeServiceId, setActiveServiceId] = useState(parseInt(id));
   const [loading, setLoading] = useState(true);
+  const [customData, setCustomData] = useState({}); 
+
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchServices = async () => {
       setLoading(true);
       try {
-        const response = await fetch('/db.json');
+        const response = await fetch(`${URLAPI}/api/services?lang=${lang}`);
         const data = await response.json();
-        setServiceData(data.servicesDetails);
+        setServicesData(data.data); 
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching services data:', error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchData();
-  }, []);
+    fetchServices();
+  }, [URLAPI, lang]);
 
-  const selectedServiceMemo = useMemo(() => {
-    if (serviceData) {
-      return serviceData.detailsList.find(item => item.id === activeServiceId) || serviceData.detailsList[0];
-    }
-    return null;
-  }, [serviceData, activeServiceId]);
 
   useEffect(() => {
-    setSelectedService(selectedServiceMemo);
-  }, [selectedServiceMemo]);
+    const fetchCustomData = async () => {
+      try {
+        const response = await fetch('${URLAPI}/api/static/page/products?lang=${lang}');
+        const data = await response.json();
+        setCustomData(data); 
+      } catch (error) {
+        console.error('Error fetching custom data:', error);
+      }
+    };
+
+    fetchCustomData();
+  }, []);
+
+  useEffect(() => {
+    const service = servicesData.find(item => item.id === activeServiceId);
+    setSelectedService(service);
+  }, [servicesData, activeServiceId]);
 
   const handleSelectService = useCallback((item) => {
     setSelectedService(item);
@@ -52,21 +61,15 @@ function ServicesDetails() {
     return <div>Loading data, please wait...</div>;
   }
 
-  if (!serviceData || !selectedService) {
+  if (!servicesData.length || !selectedService) {
     return <div>No data available.</div>;
   }
 
-  const customImage = '../xid.jpg'; 
-  const customName = 'Sığınacaqlarımız'; 
+  const customImage = customData.hero_image ; 
+  const customName = customData.hero_title ; 
 
   return (
     <>
-
-      <Suspense fallback={<div>Loading Header...</div>}>
-        <Header />
-        <Navbar/>
-      </Suspense>
-
       <Suspense fallback={<div>Loading Banner...</div>}>
         <ServicesBanner image={customImage} name={customName} />
       </Suspense>
@@ -75,12 +78,9 @@ function ServicesDetails() {
         <div className="detail-content container">
           <div className="detail-list">
             <ul>
-              {serviceData.detailsList.map((item) => (
+              {servicesData.map((item) => (
                 <li key={item.id} className={activeServiceId === item.id ? 'active' : ''}>
-                  <Link 
-                    to={`/services/${item.id}`} 
-                    onClick={() => handleSelectService(item)} 
-                  >
+                  <Link to={`/services/${item.id}`} onClick={() => handleSelectService(item)}>
                     {item.title}
                   </Link>
                 </li>
@@ -96,22 +96,16 @@ function ServicesDetails() {
           </div>
 
           <div className="detail-info">
-            <img src={selectedService.detailImage} alt={selectedService.title} />
-
+            <img src={selectedService.src} alt={selectedService.title} />
             <div className="detail-info-content">
               <h2>{selectedService.title} Services</h2>
-              <p>{selectedService.detailsDescription}</p>
+              <p>{selectedService.description}</p>
             </div>
           </div>
         </div>
       </section>
-
-      <Suspense fallback={<div>Loading Footer...</div>}>
-        <FooterSec />
-        <FootEnd />
-      </Suspense>
     </>
   );
 }
 
-export default ServicesDetails;
+export default ServicesDetails; 

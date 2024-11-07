@@ -1,8 +1,11 @@
-/* .pro-wrapper {
+.pro-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
- 
+    margin: 0 auto;
+    max-width: 1200px; 
+    padding: 20px;
+    width: 100%;
 }
 
 .pro-title {
@@ -13,29 +16,33 @@
 }
 
 .pro-list {
-    display: grid;
+    display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(354px, 1fr)); 
     gap: clamp(1rem, 2vw, 2.4rem);
 }
 
 .pro-card {
     position: relative;
-    width: 354px; 
-    height: 449px; 
     overflow: hidden;
-    transition: all 300ms ease-in;
+    transition: transform 300ms ease-in;
     display: flex;
     flex-direction: column;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
 }
 
 .pro-card:hover {
-    transform: scale(0.98);
+    transform: scale(1.05);
 }
 
 .pro-image {
     width: 100%;
-    min-height: 100%;
+    /* height: auto;  */
     object-fit: cover;
+    border-bottom: 1px solid #ddd; 
 }
 
 .pro-card h2 {
@@ -56,21 +63,21 @@
 
 .pro-link {
     width: 100%;
-    text-decoration: underline;
+    text-decoration: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; 
     align-items: center;
-    padding: clamp(1rem, 1.5vw, 1.4rem) clamp(1.5rem, 2vw, 2.7rem);
+    padding: clamp(1rem, 1.5vw, 1.4rem);
     font-weight: 500;
     font-size: clamp(1rem, 1.6vw, 2rem);
-    text-decoration: none;
     border-radius: 0 0 8px 8px;
-    color: var(--black);
+    color: black; 
 }
-
-
-
-
+.pro-link:hover{
+    background-color: #4066ff;
+    color: #fff;
+}
+/* Media Queries */
 @media (max-width: 768px) {
     .pro-list {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
@@ -79,29 +86,21 @@
     .pro-card {
         width: 100%;
         height: auto; 
-       
     }
 
     .pro-card h2 {
-      
         width: clamp(80%, 90vw, 90%);
         font-size: clamp(1.2rem, 2.2vw, 2rem);
-       
     }
 
     .pro-link {
         padding: clamp(1rem, 1.5vw, 1.2rem) clamp(1rem, 1.5vw, 2rem);
         font-size: clamp(0.8rem, 1.4vw, 1.6rem);
     }
-
-    .pro-image {
-        height: auto;
-    }
 }
 
-
 @media (max-width: 700px) {
-    .pro-card h2{
-        bottom: -10%;
+    .pro-card h2 {
+        bottom: -10%; 
     }
-} */
+}

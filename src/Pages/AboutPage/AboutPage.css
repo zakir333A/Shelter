@@ -75,6 +75,7 @@
     text-align: center;
     box-shadow: 0.4rem 0.4rem 1rem rgba(228, 142, 51, 0.3); 
     transition: all 400ms ease;
+    padding: 2rem;
 }
 
 .card-top:hover {

@@ -2,10 +2,6 @@
   position: relative;
 }
 
-.mapcontent {
-  padding-top: clamp(8rem, 5vw + 3rem, 14rem);
-  
-}
 
 .map-wrapper::after {
   content: "";
@@ -119,9 +115,7 @@
 
 
 
-.required {
-  color: orange;
-}
+
 
 .filled {
   top: -6px;
@@ -250,4 +244,27 @@ iframe {
   color: red !important; 
  font-size: 1rem !important;
 
+}
+
+#customTextArea {
+  width: clamp(200px, 100%, 600px); 
+  height: 150px; 
+  padding: 1rem; 
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  font-size: 1.3rem; 
+  font-family: 'Arial', sans-serif; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+#customTextArea:focus {
+  border-color: #007BFF; 
+  outline: none; 
+}
+
+#customTextArea::placeholder {
+  color: #aaa; 
+  font-style: italic; 
 }

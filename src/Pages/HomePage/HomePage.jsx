@@ -1,29 +1,53 @@
-import React from 'react';
-import Header from '../../components/Header/Header';
-import Navbar from '../../components/Navbar/Navbar';
-import Hero from '../../components/Hero/Hero';
-import About from '../../components/About/About';
-import Projects from '../../components/Projects/Projects';
-import PartnerBanner from '../../components/Partner/PartnerBanner';
-import Partner from '../../components/Partner/Partner';
-import Map from '../../components/Map/Map';
-import Footer from '../../components/Footer/Footer';
-import FootEnd from '../FooterSec/FootEnd';
+import React, { useEffect, useState, Suspense } from 'react';
+import ServicesMain from '../../components/ServicesMain/ServicesMain';
+import '../../components/Projects/Projects';
+
+const Hero = React.lazy(() => import('../../components/Hero/Hero'));
+const About = React.lazy(() => import('../../components/About/About'));
+const Projects = React.lazy(() => import('../../components/Projects/Projects'));
+const Map = React.lazy(() => import('../../components/Map/Map'));
+const Carousel = React.lazy(() => import('../../components/PartnerCarousel/Carousel'));
 
 const HomePage = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize); 
+    };
+  }, []); 
+
   return (
     <>
-      <Header />
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects proHead="Sığınacaqlarımız" /> 
-      <Projects proHead="Xidmetler" /> 
-      <PartnerBanner />
-      <Partner />
-      <Map />
-      <Footer />
-      <FootEnd />
+      <Suspense fallback={<div>Loading Hero...</div>}>
+        <Hero />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading About...</div>}>
+        <About />
+      </Suspense>
+      
+      <Suspense fallback={<div>Loading Projects...</div>}>
+        <Projects />
+      </Suspense>
+      
+      <Suspense fallback={<div>Loading Services...</div>}>
+        <ServicesMain proHead="Xidmetler" />
+      </Suspense>
+      
+      <Suspense fallback={<div>Loading Carousel...</div>}>
+        <Carousel />
+      </Suspense>
+      
+      <Suspense fallback={<div>Loading Map...</div>}>
+        <Map />
+      </Suspense>
     </>
   );
 };

@@ -8,15 +8,23 @@ const ContactTeam = () => {
 
   const fetchTeamMembers = useCallback(async () => {
     try {
-      const response = await fetch('/db.json');
+      const response = await fetch('http://192.168.88.225:8000/api/contactings/contact'); 
       if (!response.ok) {
-        throw new Error('not ok');
+        throw new Error('Error fetching data');
       }
       const data = await response.json();
-      setTeamMembers(data.teamMembers || []); 
+
+   
+      if (Array.isArray(data)) {
+        setTeamMembers(data);
+      } else if (data.teamMembers) {
+        setTeamMembers(data.teamMembers); 
+      } else {
+        throw new Error('Data format is not correct');
+      }
     } catch (error) {
       setError(error.message);
-      console.error('Error Data:', error);
+      console.error('Error fetching data:', error);
     } finally {
       setLoading(false);
     }
@@ -26,7 +34,9 @@ const ContactTeam = () => {
     fetchTeamMembers();
   }, [fetchTeamMembers]);
 
-
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -40,9 +50,9 @@ const ContactTeam = () => {
       <div className="teamCardsContainer">
         {teamMembers.map((member) => (
           <div className="teamCard" key={member.id}>
-            <img src={member.imgSrc} alt={member.name} />
+            <img src={member.src} alt={member.name} />
             <h2>{member.name}</h2>
-            <a href={`mailto:${member.email}`}>{member.email}</a>
+            <a href={`mailto:${member.mail}`}>{member.mail}</a>
           </div>
         ))}
       </div>
